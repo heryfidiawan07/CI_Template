@@ -1,0 +1,138 @@
+#sidebar a,
+a:hover,
+a:focus {
+    color: inherit;
+    /*color: #ec4e30;*/
+    text-decoration: none;
+    transition: all 1s;
+}
+#sidebar-btn-collapse:hover {
+    color: #0f2446 !important;
+}
+
+.navbar {
+    background-color: #FFFF;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/*.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}*/
+
+/*.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}*/
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+#sidebar {
+    width: 200px;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    z-index: 999;
+    background-color: #0f2446;
+    color: silver;
+    transition: all 1s;
+    overflow-y: auto;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+#sidebar .sidebar-header {
+    /*padding: 10px;*/
+    /*background: #927aca;*/
+}
+
+#sidebar ul.components {
+    top: 100;
+    padding: 20px 0;
+    /*border-bottom: 1px solid #47748b;*/
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    display: block;
+    /*color: #ec4e30;*/
+}
+
+#sidebar ul li a:hover {
+    /*color: #fff;*/
+    background: #142e56;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    /*color: #ec4e30;*/
+    /*background: silver;*/
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    /*font-size: 0.9em !important;*/
+    padding-left: 30px !important;
+    background: #142e56;
+}
+#sidebar ul ul a:hover {
+    background: #27487c;
+}
+.sidebar-icon {
+    width: 25px;
+}
+/*
+ul.CTAs {
+    padding: 20px;
+}*/
+
+/*ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}*/
+/*
+a.download {
+    background: #fff;
+    color: #7386D5;
+}*/
+
+/*a.article,
+a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}*/
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    max-width: 100%;
+    padding-left: 220px;
+    background: #F1F4F7 !important;
+}

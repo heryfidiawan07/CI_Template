@@ -1,0 +1,249 @@
+
+    <!-- + - 'e' clear -->
+    <input type="hidden" id="url" value="<?= base_url(); ?>">
+    <script src="<?= base_url(); ?>assets/reference/vendor/popper.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/vendor/bootstrap.min.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/vendor/simplebar.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/vendor/Chart.min.js"></script>
+    <!-- <script src="https://cdn.rawgit.com/emn178/Chart.PieceLabel.js/master/build/Chart.PieceLabel.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script> -->
+    <script src="<?= base_url(); ?>assets/reference/cdn/Chart.PieceLabel.min.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/vendor/moment.min.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/js/color_variables.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/js/app.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/vendor/dom-factory.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/vendor/material-design-kit.js"></script>
+
+    <script>
+    (function() {
+        'use strict';
+        domFactory.handler.autoInit()
+        var sidebarToggle = document.querySelectorAll('[data-toggle="sidebar"]')
+        sidebarToggle.forEach(function(toggle) {
+            toggle.addEventListener('click', function(e) {
+                var selector = e.currentTarget.getAttribute('data-target') || '#default-drawer'
+                var drawer = document.querySelector(selector)
+                if (drawer) {
+                    if (selector == '#default-drawer') {
+                        $('.container-fluid').toggleClass('container--max');
+                    }
+                    drawer.mdkDrawer.toggle();
+                }
+            })
+        })
+    })()
+    </script>
+
+    <script src="<?= base_url(); ?>assets/reference/vendor/morris.min.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/vendor/raphael.min.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/vendor/bootstrap-datepicker.min.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/js/wickedpicker.min.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/js/datepicker.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/js/moment.js"></script>
+
+    <script src="<?= base_url(); ?>assets/reference/vendor/jquery.dataTables.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/vendor/dataTables.bootstrap4.js"></script>
+
+    <!-- <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script> -->
+
+    <script src="<?= base_url(); ?>assets/reference/cdn/dataTables.buttons.min.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/cdn/buttons.flash.min.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/cdn/jszip.min.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/cdn/pdfmake.min.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/cdn/vfs_fonts.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/cdn/buttons.html5.min.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/cdn/buttons.print.min.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/js/buffer_truck.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/js/tbl_tid.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/js/tbl_user.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/js/tbl_singletid.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/js/tbl_company.js"></script>
+    <script src="<?= base_url(); ?>assets/reference/js/tbl_vehicle.js"></script>
+    <!-- <script src="/js/tbl_trt.js"></script> -->
+    <script src="<?= base_url(); ?>assets/reference/js/tbl_user_menu.js"></script>
+    <!-- SELECT2 -->
+    <!-- <script src="/js/select2.full.min.js"></script> -->
+    <!-- END SELECT2 -->
+
+    <script src="<?= base_url(); ?>assets/reference/js/jquery.mask.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#no_plat').mask('SZ 0OOOO SZZ', {
+                translation: {
+                    'Z': {
+                        pattern: /[a-zA-Z]/, optional: true
+                    },
+                    'O': {
+                        pattern: /[0-9]/, optional: true
+                    },
+                    clearIfNotMatch: true
+                }
+            });
+
+            $('#npwp').mask('00.000.000.0-000.000');
+            $('#phone').mask('+6200-0000-0000-00');
+            $('#prox_id').mask('0000-0000-0000-0000');
+
+        });
+
+        $('.changePass').click(function() {
+            $('#modalChangePass').modal('show');
+        });
+
+        $('#modalChangePass').on('hidden.bs.modal', function () {
+            $('#passOld').val('');
+            $('#passnew').val('');
+            $('#passconf').val('');
+            $('#WarnpassOld').css('display', 'none');
+            $('#Warnpassnew').css('display', 'none');
+            $('#Warnpassconf').css('display', 'none');
+            $('#passOld').attr("type", "password");
+            $('#passnew').attr("type", "password");
+            $('#passconf').attr("type", "password");
+            $('.field-icon-cp').toggleClass("fa-eye fa-eye-slash");
+        })
+
+        var substringMatcher = function(strs) {
+            return function findMatches(q, cb) {
+                var matches, substringRegex;
+
+                // an array that will be populated with substring matches
+                matches = [];
+
+                // regex used to determine if a string contains the substring `q`
+                substrRegex = new RegExp(q, 'i');
+
+                // iterate through the pool of strings and for any string that
+                // contains the substring `q`, add it to the `matches` array
+                $.each(strs, function(i, str) {
+                    if (substrRegex.test(str)) {
+                    matches.push(str);
+                    }
+                });
+
+                cb(matches);
+            };
+        };
+
+        $('#the-basics .typeahead').typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1
+        },
+        {
+        name: 'states',
+        source: substringMatcher(states),
+        templates: {
+            empty: [
+            '<div class="empty-message">',
+                'unable to find any company name that match the current query',
+            '</div>'
+            ].join('\n'),
+            suggestion: function(data) {
+                return '<p class="list-search">' + data + '</p>';
+            }
+        }
+        });
+
+        $('#btnSavePassword').click(function() {
+        var passOld = $('#passOld').val();
+        var passnew = $('#passnew').val();
+        var passconf = $('#passconf').val();
+
+        var isValid = 1;
+
+        if(passOld == '') {
+            $('#WarnpassOld').css('display', 'block');
+            $('#WarnpassOld').html('<i class="fa fa-exclamation-circle"></i> Required field.');
+            // alert('New password is not valid');
+        }
+        else {
+            $('#WarnpassOld').css('display', 'none');
+        }
+        if(passnew == '') {
+            $('#Warnpassnew').css('display', 'block');
+            $('#Warnpassnew').html('<i class="fa fa-exclamation-circle"></i> Required field.');
+            // alert('Data is not empty');
+        }
+        else {
+            $('#Warnpassnew').css('display', 'none');
+        }
+        if(passconf == '') {
+            $('#Warnpassconf').css('display', 'block');
+            $('#Warnpassconf').html('<i class="fa fa-exclamation-circle"></i> Required field.');
+            // alert('Data is not empty');
+        }
+        else {
+            $('#Warnpassconf').css('display', 'none');
+        }
+
+        if(passOld == '' || passnew == '' || passconf == '') {
+            isValid = 0;
+        }
+
+        if(isValid == 1) {
+            if(passnew != passconf) {
+                $('#Warnpassconf').css('display', 'block');
+                $('#Warnpassconf').html('<i class="fa fa-exclamation-circle"></i> Password is not same.');
+                // alert('New password is not valid');
+                isValid = 0;
+            }else{
+                var regex = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z\d]).+$/;
+                if(! regex.test(passnew)) {
+                    $('#Warnpassnew').css('display', 'block');
+                    $('#Warnpassnew').html('<i class="fa fa-exclamation-circle"></i>Password must be of maximum length 8 characters with a mix of letters, numbers & symbols.');
+                    isValid = 0;
+                }
+            }
+        }
+
+        if(isValid == 1) {
+            if(passOld == passnew) {
+            $('#Warnpassnew').css('display', 'block');
+            $('#Warnpassnew').html('<i class="fa fa-exclamation-circle"></i> Must different with old password.');
+                $('#Warnpassconf').css('display', 'block');
+                $('#Warnpassconf').html('<i class="fa fa-exclamation-circle"></i> Must different with old password.');
+            // alert('New password must different with old password');
+            isValid = 0;
+            }
+        }
+
+        if(isValid == 1) {
+            $.ajax({
+            url: 'http://10.8.3.125/singletid/c_user/change_password',
+            type: 'POST',
+            data:  $( "#fcangePass" ).serialize(),
+            success: function (data)
+            {
+                var data = eval('('+data+')');
+                var result;
+                result = (data.msg).split('|');
+
+                if (data.success=='success'){
+                    alert('Password is changed');
+                    $('#modalChangePass').modal('hide');
+                    location.href = 'http://10.8.3.125/singletid/c_login';
+                }
+                else{
+                    $('#WarnpassOld').css('display', 'block');
+                    $('#WarnpassOld').html('<i class="fa fa-exclamation-circle"></i> Password is wrong.');
+                    // alert(result[1]);
+                    return false;
+                }
+            }
+
+            });
+
+        }
+
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><?= $title; ?></title>
+    <link type="text/css" href="<?= base_url(); ?>./assets/reference/css/vendor-morris.css" rel="stylesheet">
+    <link type="text/css" href="<?= base_url(); ?>./assets/reference/css/vendor-bootstrap-datepicker.css" rel="stylesheet">
+    <link type="text/css" href="<?= base_url(); ?>./assets/reference/css/wickedpicker.min.css" rel="stylesheet">
+    <!-- Prevent the demo from appearing in search engines -->
+    <meta name="robots" content="noindex">
+    <!-- App CSS -->
+    <link type="text/css" href="<?= base_url(); ?>./assets/reference/css/app.css" rel="stylesheet">
+    <link type="text/css" href="<?= base_url(); ?>./assets/reference/css/app.rtl.css" rel="stylesheet">
+    <link type="text/css" href="<?= base_url(); ?>./assets/reference/css/error.css" rel="stylesheet">
+    <!-- Simplebar -->
+    <link type="text/css" href="<?= base_url(); ?>./assets/reference/vendor/simplebar.css" rel="stylesheet">
+    <!-- Data Tables -->
+    <link type="text/css" href="<?= base_url(); ?>./assets/reference/css/vendor-bootstrap-datatables.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="<?= base_url(); ?>./assets/reference/cdn/jquery.dataTables.min.css">
+    <link type="text/css" rel="stylesheet" href="<?= base_url(); ?>./assets/reference/cdn/buttons.dataTables.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <script src="<?= base_url(); ?>./assets/reference/vendor/jquery.min.js"></script>
+    <script src="<?= base_url(); ?>./assets/reference/js/typeahead.bundle.js"></script>
+    <script src="https://unpkg.com/vue@2.5.17/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- SELECT2 -->
+    <link rel="stylesheet" href="<?= base_url().'/assets/css/dashboard.css'; ?>">
+    <script>
+        var states = [];
+        var getUrl = window.location;
+        var base_url = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+        function sidebarRight() {
+            $('.sidebar-right').css('display', 'block');
+            $('.sidebar-right-container').css('display', 'block');
+        }
+        function closeSidebar() {
+            $('.sidebar-right').css('display', 'none');
+            $('.sidebar-right-container').css('display', 'none');
+        }
+        $(document).ready(function(){
+            $('#tid').keyup(function() {
+            $('#no_plat').text($(this).val());
+            });
+        });
+    </script>
+</head>
+
+<body>
+    
+    <?php $this->load->view('/template/navbar.php'); ?>
+
+    <?php $this->load->view('/template/right-sidebar.php'); ?>
+    

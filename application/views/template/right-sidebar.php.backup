@@ -1,0 +1,51 @@
+<!-- Right Sidebard -->
+<div class="sidebar-right">
+    <div class="sidebar-right-container">
+        <div class="profile mt-5 mb-2 text-center text-white">
+            <i class="fas fa-user fa-3x"></i>
+            <h5><?= $auth[0]['name']; ?></h5>
+        </div>
+        <a href="<?= base_url('logout'); ?>" class="logout">Logout</a>
+        <a href="#" class="changePass logout">Change Password</a>
+        <a href="#" onclick="closeSidebar()" class="logout">Close</a>
+    </div>
+</div>
+<!-- End Right Sidebard -->
+
+<!-- Modal Change Password -->
+<div class="modal fade" id="modalChangePass" tabindex="-1" role="dialog" aria-labelledby="exampleAlertModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <form id="fcangePass" method="post">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleAlertModalLabel">Change Password</h3>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                <label>Old Password</label>
+                <span toggle="#passOld" class="fa fa-fw fa-eye-slash field-icon-cp toggle-password"></span>
+                <input type="password" id="passOld" name="passOld" placeholder="Old Password" class="form-control">
+                <label id="WarnpassOld" style="color: red; display: none;"><i class="fa fa-exclamation-circle"></i> Required field.</label>
+                </div><br>
+                <div class="col-md-12">
+                <label>New Password</label>
+                <span toggle="#passnew" class="fa fa-fw fa-eye-slash field-icon-cp toggle-password"></span>
+                <input type="password" id="passnew" name="passnew" placeholder="New Password" class="form-control" maxlength="8">
+                <label id="Warnpassnew" style="color: red; display: none;"><i class="fa fa-exclamation-circle"></i> Required field.</label>
+                </div><br>
+                <div class="col-md-12">
+                <label>Confirm Password</label>
+                <span toggle="#passconf" class="fa fa-fw fa-eye-slash field-icon-cp toggle-password"></span>
+                <input type="password" id="passconf" name="passconf" placeholder="Confirm Password" class="form-control" maxlength="8">
+                <label id="Warnpassconf" style="color: red; display: none;"><i class="fa fa-exclamation-circle"></i> Required field.</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success textOrigin" id="btnSavePassword">Send</button>
+                <button type="button" class="btn btn-secondary textOrigin" data-dismiss="modal">Cancel</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Modal Change Password -->

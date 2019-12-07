@@ -1,0 +1,10 @@
+#login-background {
+	height: 100vh;
+	/*background:url('../img/......jpg'); */
+	background-size:cover;
+}
+#register-background {
+	height: auto;
+	/*background:url('../img/......jpg'); */
+	background-size:cover;
+}

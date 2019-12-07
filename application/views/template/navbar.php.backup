@@ -1,0 +1,63 @@
+<?php if ($auth): ?>
+        
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-blue pt-2 pb-2">
+        <a class="navbar-brand" href="#">
+            <img src="<?= base_url().'assets/img/logo_ilcs_white.png'; ?>" height="30">
+        </a>
+        <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse font-12" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('dashboard'); ?>">
+                        Dashboard <span class="nav-link-white"></span>
+                    </a>
+                </li>
+                
+                <?php foreach ($auth as $user): ?>
+                    <?php if ($user->parentId == 0): ?>
+                        <li class="nav-item">
+                            <div class="dropdown show">
+                            <a href="<?= base_url().$user->url; ?>"
+                                <?php foreach ($auth as $childs): ?>
+                                    <?php if ($childs->parentId == $user->menuId): ?>
+                                         class="nav-link" id="childs-<?=$user->menuId?>" data-toggle="dropdown"
+                                    <?php else: ?>
+                                        class="nav-link"
+                                    <?php endif ?>
+                                <?php endforeach ?>
+                            >
+                                <?= $user->menuName; ?>
+                                <?php foreach ($auth as $childs): ?>
+                                    <?php if ($childs->parentId == $user->menuId): ?>
+                                        <i class="fas fa-caret-down"></i>
+                                        <?php break ?>
+                                    <?php endif ?>
+                                <?php endforeach ?>
+                                <span class="nav-link-white">Management</span>
+                            </a>
+                            <div class="dropdown-menu childs" aria-labelledby="childs-<?=$user->menuId?>">
+                                <?php foreach ($auth as $childs): ?>
+                                    <?php if ($childs->parentId == $user->menuId): ?>
+                                        <a class="dropdown-item text-white childs-item font-12" href="<?= base_url().$childs->url; ?>"><?= $childs->menuName; ?></a>
+                                    <?php endif ?>
+                                <?php endforeach ?>
+                            </div>
+                        </div>
+                        </li>
+                    <?php endif ?>
+                <?php endforeach ?>
+                
+            </ul>
+            <div class="header-box mr-0" style="border:0 !important;">
+                <button type="button" class="btn pt-3" data-toggle="modal" data-target="#right-sidebar">
+                    <i class="fas fa-user text-white"></i>
+                    <h5 class="mt-1 text-white font-12"><?= $auth[0]->name; ?></h5>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+<?php endif ?>
